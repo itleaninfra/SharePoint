@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    #s4-titlerow, #sideNavBox{display:none !important}
+    #contentBox{margin-left:0}
+    body{background-color: #F8F7F7}
+    #header-OPA, #rodape-OPA{margin:auto; width:550px}
+    #container-OPA{text-align: center; font-family: Helvetica, sans-serif,Arial; vertical-align: middle}
+    #container-OPA > div > div{width:400px; color: white; margin: 0 auto 15px auto; font-size:42px; cursor:pointer; padding: 20px 0;}
+    #container-OPA > div > div:hover{width:410px; padding:21px 0;}
+    #container-OPA > div > div:nth-child(2){background-color: #EC9620}
+    #container-OPA > div > div:nth-child(3){background-color: yellowgreen}
+    #container-OPA > div > div:nth-child(4){background-color: blue}
+    #container-OPA > div > div:nth-child(5){background-color: red}
+    #inicial > img, #inicial > p{cursor:pointer}
+    .passar-pagina{background-color: gray; font-size:30px; width:400px; margin: 20px auto 0 auto !important; cursor:pointer}
+    .passar-pagina:hover{width:420px}
+    #container-OPA > div{display: none}
+    #container-OPA > div:first-child{display:block}
+    
+    @media (max-width : 400px) {
+        #header-OPA, #rodape-OPA{margin:auto; width:100%}
+        #container-OPA{width:100%}
+        #container-OPA > div > div{width:100%}
+        .passar-pagina:hover{width:320px}
+        #inicial > img{max-width: 100px;}
+        img{max-width: 100%; max-height:100%}
+    }
+    </style>
+</head>
+<body>
+    <section id="header-OPA"><img src="/sistemas/opa/SiteAssets/cabecalho.jpg" /></section>
+    <section id="container-OPA">
+        <div id="inicial">
+            <img src="/sistemas/opa/SiteAssets/leoleao.jpg" onclick="passarPagina(1)"/>
+            <img src="http://sharepoint.leaoab.com.br/sistemas/opa/SiteAssets/frame.png" onclick="passarPagina(1)"/>
+            <p onclick="passarPagina(1)">Clique aqui para iniciar a pesquisa</p>
+        </div>
+        <div id="tipo-observador">
+            <h2>Dados do Observador</h2>
+            <div id="funcionario" onclick="passarPagina(2); Observador(this.id)">Funcionário</div>
+            <div id="cipeiro" onclick="passarPagina(2); Observador(this.id)">Cipeiro</div>
+            <div id="terceiro" onclick="passarPagina(2); Observador(this.id)">Terceiro</div>
+            <p class="passar-pagina" onclick="VoltarPagina(2)"> Descartar </p>
+        </div>
+        <div id="dados-observador">
+            <h2>Dados do Observador</h2>
+            <label>Nome / Matrícula</label><br>
+            <input type="text" id="nome-matricula"><br><br>
+            <label>Área / Empresa</label><br>
+            <input type="text" id="area-empresa">
+            <p class="passar-pagina" onclick="passarPagina(3)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(3)"> Descartar </p>
+          
+        </div>
+        <div id="turno-observador">
+            <h2>Dados do Observador</h2>
+            <div id="turno1" onclick="passarPagina(4); turno(this.id)">1º Turno</div>
+            <div id="turno2" onclick="passarPagina(4); turno(this.id)">2º Turno</div>
+            <div id="turno3" onclick="passarPagina(4); turno(this.id)">3º Turno</div>
+            <div id="turno4" onclick="passarPagina(4); turno(this.id)">Administrativo</div>
+            <p class="passar-pagina" onclick="VoltarPagina(4)"> Descartar </p>
+        </div>
+        <div id="local-observacao">
+            <h2>Dados da Observação</h2>
+            <label>Área / Linha</label><br>
+            <input type="text" id="area-linha"><br><br>
+            <label>Local Específico / Equipamento</label><br>
+            <input type="text" id="local-equipamento"><br>
+            <p class="passar-pagina" onclick="passarPagina(5)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(5)"> Descartar  </p>
+        </div>
+        <div id="tipo-observacao">
+            <h2>Tipo de Observação Comportamental</h2>
+            <div id="seguranca-saude" onclick="passarPagina(6); observacao(this.id)">Segurança e Saúde</div>
+            <div id="meio-ambiente" onclick="passarPagina(6); observacao(this.id)">Meio Ambiente</div>            
+            <div id="seguranca-alimentos" onclick="passarPagina(6), observacao(this.id)">Qualidade e Segurança dos Alimentos</div>
+            <div id="reconhecimento-positivo" style="background-color:DeepSkyBlue" onclick="passarParaPagina(13), observacao(this.id)">Reconhecimento Positivo</div>
+             <p class="passar-pagina" onclick="VoltarPagina(6)"> Descartar </p>
+
+        </div>
+        <div id="epi-epc">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>EPI / EPC</h3>
+            <input type="checkbox" name="epi-epc" value="Bater contra / ser atingido por">Bater contra / ser atingido por<br>
+            <input type="checkbox" name="epi-epc" value="Choque elétrico">Choque elétrico<br>
+            <input type="checkbox" name="epi-epc" value="Contato com produto químico">Contato com produto químico<br>
+            <input type="checkbox" name="epi-epc" value="Ergonomia">Ergonomia<br>
+            <input type="checkbox" name="epi-epc" value="Ficar preso">Ficar preso<br>
+            <input type="checkbox" name="epi-epc" value="Queda">Queda<br>
+            <input type="checkbox" name="epi-epc" value="Queimadura">Queimadura<br>
+            <p class="passar-pagina" onclick="passarPagina(7)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(7)"> Descartar </p>
+        </div>
+        <div id="ferramentas-equipamentos">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>Ferramentas e Equipamentos</h3>
+            <input type="checkbox" name="ferramentas-equipamentos" value="Impróprio(a) para uso">Impróprio(a) para uso<br>
+            <input type="checkbox" name="ferramentas-equipamentos" value="Usado(a) incorretamente">Usado(a) incorretamente<br>
+            <input type="checkbox" name="ferramentas-equipamentos" value="Em condições inseguras">Em condições inseguras<br>
+            <p class="passar-pagina" onclick="passarPagina(8)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(8)"> Descartar </p>
+        </div>
+        <div id="procedimentos">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>Procedimentos</h3>
+            <input type="checkbox" name="procedimentos" value="Inadequados">Inadequados<br>
+            <input type="checkbox" name="procedimentos" value="Adequados e não seguidos">Adequados e não seguidos<br>
+            <input type="checkbox" name="procedimentos" value="BRF">BRF<br>
+            <p class="passar-pagina" onclick="passarPagina(9)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(9)"> Descartar  </p>
+        </div>
+        <div id="cinco">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>5's</h3>
+            <input type="checkbox" name="cinco" value="Local sujo">Local sujo<br>
+            <input type="checkbox" name="cinco" value="Local desorganizado">Local desorganizado<br>
+            <p class="passar-pagina" onclick="passarPagina(10)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(10)"> Descartar </p>
+        </div>
+        <div id="meio-ambiente">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>Meio Ambiente</h3>
+            <input type="checkbox" name="meio-ambiente" value="Desperdício de recursos naturais (Água, energia elétrica, etc.)">Desperdício de recursos naturais (Água, energia elétrica, etc.)<br>
+            <input type="checkbox" name="meio-ambiente" value="Desperdício de materiais">Desperdício de materiais<br>
+            <input type="checkbox" name="meio-ambiente" value="Desperdício e armazenamento incorreto de resíduos">Desperdício e armazenamento incorreto de resíduos<br>
+            <p class="passar-pagina" onclick="passarPagina(11)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(11)"> Descartar </p>
+        </div>
+        <div id="observacoes">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>Outros Específicos</h3>
+            <label>Detalhar:</label><br>
+            <textarea id="observacoes-texto" cols="60" rows="3"></textarea>
+            <p class="passar-pagina" onclick="passarParaPagina(14)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(14)"> Descartar  </p>
+        </div>
+        <div id="reconhecimento">
+            <h2>Ocorrência Observação Comportamental - Riscos</h2>
+            <h3>Reconhecimento Positivo</h3>
+            <label>Detalhar:</label><br>
+            <textarea id="reconhecimento-texto" cols="60" rows="3"></textarea>
+            <p class="passar-pagina" onclick="passarPagina(13)">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(13)"> Descartar  </p>
+        </div>
+        <div id="ocorrencia">
+            <h2>Descrição da Ocorrência</h2>
+            <label>O que aconteceu?</label><br>
+            <textarea id="ocorrencia-texto" cols="60" rows="3"></textarea><br>
+            <label>Ação Imediata</label><br>
+            <textarea id="acao-imediata" cols="60" rows="3"></textarea><br>
+            <label>Ação Corretiva</label><br>
+            <textarea id="acao-corretiva" cols="60" rows="3"></textarea><br>
+            <p class="passar-pagina" onclick="camposEscolha();">Próxima &gt;&gt;</p>
+            <p class="passar-pagina" onclick="VoltarPagina(14)"> Descartar  </p>
+        </div>
+        <div id="final">
+            <h2><b>OBRIGADO POR CONTRIBUIR COM A SEGURANÇA NA LEÃO</b></h2>
+            <h3>OBSERVAR  |  PLANEJAR  |  AGIR </h3>
+            <p class="passar-pagina" onclick="recarregar()">Finalizar</p>
+        </div>
+    </section>
+    <section id="rodape-OPA"><img src="/sistemas/opa/SiteAssets/rodape.jpg" /></section>
+
+<script src="/sistemas/opa/SiteAssets/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var siteUrl = '/sistemas/opa';
+var tipoObservador;
+var turnoObservador;
+var tipoObservacao;
+var epiepc = "";
+var ferramentasEquipamentos = "";
+var procedimentos = "";
+var cinco = "";
+var meioAmbiente = "";
+var pagina;
+
+
+function Observador(observador){
+    tipoObservador = observador;
+}
+function turno(turno){
+    if(turno == "turno1"){
+        turnoObservador = "1º Turno";
+    }else if(turno == "turno2"){
+        turnoObservador = "2º Turno";
+    }else if(turno == "turno3"){
+        turnoObservador = "3º Turno";
+    }else{
+        turnoObservador = "Administrativo";
+    }
+
+}
+function observacao(observacao){
+    tipoObservacao = observacao;
+}
+
+function camposEscolha(){
+
+    for(let i=0; i<$('input[name="epi-epc"]:checked').length; i++){
+        epiepc += $('input[name="epi-epc"]:checked')[i].value + "; "
+    }
+    for(let i=0; i<$('input[name="ferramentas-equipamentos"]:checked').length; i++){
+        ferramentasEquipamentos += $('input[name="ferramentas-equipamentos"]:checked')[i].value + "; "
+    }
+    for(let i=0; i<$('input[name="procedimentos"]:checked').length; i++){
+        procedimentos += $('input[name="procedimentos"]:checked')[i].value + "; "
+    }
+    for(let i=0; i<$('input[name="cinco"]:checked').length; i++){
+        cinco += $('input[name="cinco"]:checked')[i].value + "; "
+    }
+    for(let i=0; i<$('input[name="meio-ambiente"]:checked').length; i++){
+        meioAmbiente += $('input[name="meio-ambiente"]:checked')[i].value + "; "
+    }
+
+    createListItem()
+    
+}
+function passarParaPagina(proximaPagina){
+    document.querySelector("#container-OPA > div:nth-child("+pagina+")").style.display = "none";
+    pagina = proximaPagina
+    document.querySelector("#container-OPA > div:nth-child("+pagina+")").style.display = "block";
+}
+function passarPagina(paginaAtual){
+    document.querySelector("#container-OPA > div:nth-child("+paginaAtual+")").style.display = "none";
+    paginaAtual++
+    pagina = paginaAtual
+    document.querySelector("#container-OPA > div:nth-child("+paginaAtual+")").style.display = "block";
+}
+function VoltarPagina(paginaAtual){
+  // document.querySelector("#container-OPA > div:nth-child("+paginaAtual+")").style.display = "none";
+  //  paginaAtual--
+  //  pagina = paginaAtual
+  //  document.querySelector("#container-OPA > div:nth-child("+paginaAtual+")").style.display = "block";
+
+ for (i = 1; i <= paginaAtual; i++) {
+   document.querySelector("#container-OPA > div:nth-child("+i+")").style.display = "none";
+}
+ document.querySelector("#container-OPA > div:nth-child(1)").style.display = "block";
+  LimparCampos();
+
+}
+
+function recarregar(){
+    document.location.reload(true);
+}
+
+function LimparCampos(){
+document.getElementById('nome-matricula').value=""; 
+document.getElementById('area-empresa').value=""; 
+document.getElementById('area-linha').value=""; 
+document.getElementById('local-equipamento').value=""; 
+$('input[type=checkbox]').prop('checked',false);
+
+}
+
+function createListItem() {
+
+    var clientContext = new SP.ClientContext(siteUrl);
+    var oList = clientContext.get_web().get_lists().getByTitle('OPA');
+        
+    var itemCreateInfo = new SP.ListItemCreationInformation();
+    this.oListItem = oList.addItem(itemCreateInfo);
+        
+    oListItem.set_item('Observador', tipoObservador);
+    oListItem.set_item('Title', $("#nome-matricula").val());
+    oListItem.set_item('Turno', turnoObservador);
+    oListItem.set_item('_x00c1_rea_x0020__x002f__x0020_E', $("#area-empresa").val());
+    oListItem.set_item('_x00c1_rea_x0020__x002f__x0020_L', $("#area-linha").val());
+    oListItem.set_item('Local_x0020_espec_x00ed_fico_x00', $("#local-equipamento").val());
+    oListItem.set_item('Tipo_x0020_de_x0020_Observa_x00e', tipoObservacao);
+
+    oListItem.set_item('EPI_x0020__x002f__x0020_EPC', epiepc);
+    oListItem.set_item('Ferramentas_x0020__x002f__x0020_', ferramentasEquipamentos);
+    oListItem.set_item('Procedimentos', procedimentos);
+    oListItem.set_item('Organiza_x00e7__x00e3_o_x0020__x', cinco);
+    oListItem.set_item('Meio_x0020_Ambiente', meioAmbiente);
+    oListItem.set_item('Outros', $("#observacoes-texto").val());
+    oListItem.set_item('Reconhecimento', $("#reconhecimento-texto").val());
+    oListItem.set_item('Descri_x00e7__x00e3_o', $("#ocorrencia-texto").val());
+    oListItem.set_item('A_x00e7__x00e3_o_x0020_Imediata', $("#acao-imediata").val());
+    oListItem.set_item('A_x00e7__x00e3_o_x0020_Corretiva', $("#acao-corretiva").val());
+    
+    oListItem.update();
+    clientContext.load(oListItem);    
+    clientContext.executeQueryAsync(onQuerySucceeded,onQueryFailed);
+}
+
+function onQuerySucceeded() {
+    alert("Enviado com sucesso. ID: " + oListItem.get_id());
+    passarPagina(14);
+    setTimeout(recarregar,5000);
+}
+
+function onQueryFailed(sender, args) {
+    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+}
+
+
+</script>
+</body>
+</html>
