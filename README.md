@@ -4,5 +4,7 @@
 * Clientes
 1. [Leao](https://github.com/itleaninfra/SharePoint/tree/master/Clientes/Leao)
 1. [Chubb](https://github.com/itleaninfra/SharePoint/tree/master/Clientes/Chubb)
-1. Projetos
-1. Funcionalidades
+* Projetos
+2. [2129-LEA-Sustentação SharePoint](https://github.com/itleaninfra/SharePoint/tree/master/Projetos/2129-LEA-Sustentação SharePoint)
+
+* Funcionalidades
