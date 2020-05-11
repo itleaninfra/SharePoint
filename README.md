@@ -8,4 +8,5 @@
 1. [2129-LEA-Sustentação SharePoint](https://github.com/itleaninfra/SharePoint/tree/master/Projetos/2129-LEA-Sustentação-SharePoint)
 * Funcionalidades
 1. [Menu](https://github.com/itleaninfra/SharePoint/tree/master/Funcionalidades/Menu)
-1. Scripts
+* Scripts
+1. [PowerShell](https://github.com/itleaninfra/SharePoint/tree/master/Scripts/PowerShell)
