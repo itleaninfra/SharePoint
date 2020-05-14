@@ -10,7 +10,7 @@ foreach($item in $items)
     # Loga quantidade de itens #
     Write-Host "Lista $($lista.Title) tem $($lista.Items.Count) itens"    
     # Conditions to not delete #
-    if($item.id -ne 71 && $item.id -ne 25659 && $item.id -ne 72227 && $item.id -ne 73611) 
+    if($item.id -ne 71 -and $item.id -ne 25659 -and $item.id -ne 72227 -and $item.id -ne 73611) 
     {
         $lista.GetItemById($item.id).Delete()
     }
